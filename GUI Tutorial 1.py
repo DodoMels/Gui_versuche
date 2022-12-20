@@ -1,16 +1,28 @@
-# This is a sample Python script.
+import sys
+from PyQt5.QtWidgets import QApplication, QWidget, QPushButton, QToolTip
+from PyQt5.QtGui import QIcon, QFont
 
-# Press Umschalt+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+class Fenster(QWidget):
+    def __init__(self):
+        super().__init__()
+        self.initMe()
+
+    def initMe(self):
+        QToolTip.setFont(QFont('Arial', 14))    # create a ToolTip
+        button = QPushButton("drücken", self)   # setzt den Button auf das Fenster
+        button.move(50, 50)
+        button.setToolTip('this is my')         # set a ToolTip to the button
+        button.clicked.connect(self.gedruckt)
+        self.setGeometry(50, 50, 500, 500)
+        self.setWindowTitle("my first gui")
+        self.setWindowIcon(QIcon("Download.jpg"))  # Place an icon and import QIcon
+        self.show()
+    def_gedruckt:
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Strg+F8 to toggle the breakpoint.
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+app = QApplication(sys.argv)
+w = Fenster()
+sys.exit(app.exec())

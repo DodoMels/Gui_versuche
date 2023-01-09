@@ -21,7 +21,7 @@ class Fenster(QWidget):
         button.clicked.connect(self.gedruckt)   # instead of clicked there is also pressed and released
         self.setGeometry(50, 50, 500, 500)
         self.setWindowTitle("my first gui")
-        self.setWindowIcon(QIcon("Download.jpg"))  # Place an icon and import QIcon
+        self.setWindowIcon(QIcon("Icon.jpg"))  # Place an icon and import QIcon
         self.show()
 
     def gedruckt(self):
